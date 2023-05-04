@@ -1,0 +1,737 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{palatino}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Trabajo Práctico 1: El algoritmo de umbralización de Kittler
+\end_layout
+
+\begin_layout Author
+Ph.
+ D.
+ Saúl Calderón Ramírez 
+\begin_inset Newline newline
+\end_inset
+
+Instituto Tecnológico de Costa Rica, 
+\begin_inset Newline newline
+\end_inset
+
+Escuela de Computación
+\begin_inset Newline newline
+\end_inset
+
+PAttern Recongition and MAchine Learning Group (PARMA-Group)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fecha de entrega: 
+\series default
+Domingo 16 de Abril.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Entrega
+\series default
+: Un archivo .zip con el código fuente LaTeX o Lyx, el pdf, y un script en
+ jupyter, debidamente documentado, con una función definida por ejercicio.
+ A través del TEC-digital.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Modo de trabajo
+\series default
+: Grupos de 3 personas.
+\end_layout
+
+\begin_layout Standard
+En el presente trabajo práctico se introducirá el problema de la clasificación
+ a través del estudio del concepto de máxima verosimilitud.
+ Se realizará un repaso de la teoría básica relacionada con los fenómenos
+ aleatorios con distribución Gaussiana, para facilitar el análisis de la
+ función de verosimilitud.
+ Posteriormente se visitará el problema de la segmentación de imágenes desde
+ un enfoque de máxima verosimilitud, donde se desarrollará el algoritmo
+ de Kittler 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kittler1986minimum"
+literal "true"
+
+\end_inset
+
+.
+ El estudiante implementará tal algoritmo y analizará los resultados respecto
+ a los planteos teóricos introducidos previamente.
+\end_layout
+
+\begin_layout Section
+Implementación del algoritmo de Kittler
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+(70 puntos)
+\series default
+ Implemente el algoritmo de Kittler, y realice una prueba con la imagen
+ de entrada provista, aplicando posteriormente el umbral óptimo obtenido.
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Comente su implementacion con detalle en este informe.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esta parte se realiza en cada inciso
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Aplique el algoritmo de Kittler en la imagen 
+\emph on
+cuadro1_005.bmp, 
+\emph default
+provista.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Grafique el histograma normalizado de la imagen de entrada provista.
+\end_layout
+
+\begin_layout Enumerate
+Grafique la función 
+\begin_inset Formula $J(T)$
+\end_inset
+
+, y documente el valor 
+\begin_inset Formula $T=\tau$
+\end_inset
+
+ que logra el valor mínimo de 
+\begin_inset Formula $J(T)$
+\end_inset
+
+, junto con las medias y varianzas de las dos funciones Gaussianas superpuestas.
+ Son coherentes tales valores con el histograma graficado en el punto anterior?
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+El valor óptimo en el caso de esta imagen debe ser cercano a 
+\begin_inset Formula $\tau=168$
+\end_inset
+
+, con 
+\begin_inset Formula $\mu_{1}=149.45$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{2}=219.49$
+\end_inset
+
+ 
+\begin_inset Formula $\sigma_{1}^{2}=15.36$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma_{2}^{2}=10.05$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Documentación:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+En este inciso fue necesario utilizar la biblioteca de numpy, de la cual
+ se utilizó np.histogram, esto para generar el histograma de la imagen.
+ Seguidamente se calculó la función de densidad de probabilidad, esto para
+ poder calcular las probabilidades de clases más adelante.
+ Para calcular las medias y varianzas se utilizó np.mean y np.var, respectivamente
+, aprovechando la librería numpy.
+ Ahora bien, para calcular la J(t) se utilizó la fórmula vista en clase
+ (1).
+ Es importante ir actualizando el umbral óptimo si J(T) se minimiza, para
+ esto el if que se encuentra en la función, asimismo ir actualizando las
+ medias y varianzas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J(T)=1+2[P_{1}(T)\ln(\sigma_{1}(T))+P_{2}(T)\ln(\sigma_{2}(T)))]-2[P_{1}(T)\ln(P_{1}(T))+P_{2}(T)\ln(P_{2}(T)))]$
+\end_inset
+
+ (1) 
+\end_layout
+
+\begin_layout Standard
+Después de graficar y retornar los valores pedidos, se puede verificar que
+ se cumplen los mismos según el punto A.
+ Y estos tienen sentido con el histograma, pues en el caso del umbral, se
+ puede ver que el punto más bajo de la grafica es cercano a 3.5, e inicia
+ justo después de 150, lo cual podemos estimar como 168, haciendo referencia
+ al umbral óptimo.
+ Asímismo, en el histograma del punto 1, se puede ver que la media de la
+ primera clase está cercana a 150 y la de la segunda como en 220, lo cual
+ es coherente con los datos obtenidos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Histograma1.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Umbral.png
+	lyxscale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Lograría el umbral óptimo 
+\begin_inset Formula $\tau$
+\end_inset
+
+ obtenido umbralizar satisfactoriamente la imagen de prueba? Umbralice la
+ imagen de entrada provista y muestre los resultados.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Asigne con valor de 255 los pixeles del cuadrado (clase 
+\emph on
+foreground
+\emph default
+), y 0 los del fondo (clase 
+\emph on
+background
+\emph default
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Usando como base el material 
+\emph on
+Validacion.pdf, 
+\emph default
+implemente la funcion 
+\emph on
+calcular_matriz_confusion 
+\emph default
+la cual calcule la matriz de confusion (falsos positivos, falsos negativos,
+ verdaderos positivos y verdaderos negativos) para la clase 
+\emph on
+foreground.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Muestre los resultados y comente su implementacion.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Para este inciso fue necesario segmentar la imagen dada, manualmente, acá
+ el resultado del groundtruth:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ground_truth (2).png
+	lyxscale 35
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Seguidamente corresponde umbralizar la imagen original, que cuando la imagen<umb
+ral se asigne 0, de lo contrario 255, lo anterior para establecer la clase
+ background y foreground.
+ Después se implementa la función 
+\emph on
+calcular_matriz_confusion, 
+\emph default
+la cual por indicaciones es para la clase foreground, por ello que las comparaci
+ones son respecto a 255 para obtener los verdaderos positivos, verdaderos
+ negativos, falsos positivos y falsos negativos
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename matrizConfusion.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Estos resultados tienen sentido, pues al ser tan sencillo de segmentar a
+ mano, todos los 255 y 0 calzan en ambas imágenes.
+ Por lo mismo es que no deberían haber falsos, pues la imagen es la básicamento
+ lo mismo.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+(15 puntos)
+\series default
+ Calcule el umbral óptimo con el algoritmo de Kittler, y umbralice la imagen
+ de 
+\emph on
+trackedCell15.tif
+\emph default
+ provista documentando los resultados.
+ Muestre la imagen umbralizada y el histograma de la misma.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Usando la imagen, su histograma, y la matriz de confusion para la clase
+ 
+\emph on
+foreground,
+\emph default
+ explique el porqué del resultado obtenido.
+\end_layout
+
+\begin_layout Itemize
+Documentación:
+\end_layout
+
+\begin_layout Standard
+Primero, se calculó el histograma de la imagen
+\emph on
+ trackedCell15.tif 
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename histograma2.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además se obtuvo los siguientes datos de la imagen:
+\end_layout
+
+\begin_layout Standard
+Umbral de Kittler: 95 
+\end_layout
+
+\begin_layout Standard
+Media de la clase 1: 52.24, 
+\end_layout
+
+\begin_layout Standard
+Varianza: 316.26 
+\end_layout
+
+\begin_layout Standard
+Media de la clase 2: 126.42, 
+\end_layout
+
+\begin_layout Standard
+Varianza: 940.85
+\end_layout
+
+\begin_layout Standard
+Se determinó que el umbral óptimo para segmentar los pixeles es de 95.
+\end_layout
+
+\begin_layout Standard
+Así quedo la imagen umbralizada: 
+\begin_inset Graphics
+	filename Umbral2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al calcular su matriz de confusión, se obtuvo que:
+\end_layout
+
+\begin_layout Standard
+VP: 44350, FP: 0 
+\end_layout
+
+\begin_layout Standard
+FN: 37721, VN: 162581
+\end_layout
+
+\begin_layout Standard
+b) Como modificaría el algoritmo de Kittler para mejorar el resultado de
+ la umbralización? Puede usar recursos bibliográficos externos.
+\end_layout
+
+\begin_layout Standard
+Existen varias maneras para mejorar el resultado de la umbralización:
+\end_layout
+
+\begin_layout Standard
+1) Procesar la imagen antes de implementar el algoritmo.
+ Esto ayudaría a suavizar la imagen y quitar el ruido lo cual ayudaría a
+ mejorar la calidad de la imagen.
+ Las imagenes de major calidad darán mejores resultados.
+ [1]
+\end_layout
+
+\begin_layout Standard
+2) Aplicar el algoritmo de Kittler en regiones segmentadas.
+ Utilizar la varianza de un segmento en particular de la imagen para aplicar
+ el algoritmo de Kitler puede dar resultados más eficientes que utlizar
+ la varianza de la imagen en su totalidad.
+ [1]
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+3.
+ (15 puntos)
+\series default
+ La función de Kullback-Leibler (KL) compara dos funciones de densidad de
+ probabilidad 
+\begin_inset Formula $p\left(x\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+D_{\textrm{KL}}\left(p,q\right)=-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Implemente la función 
+\emph on
+calcular_kullback_leibler(p,q), 
+\emph default
+para comparar
+\emph on
+ 
+\emph default
+la función de densidad estimada por el histograma calculado en el punto
+ 1.a.2, y la función de densidad obtenida en el punto c.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Explique la relación entre la distancia KL y el proceso de estimación de
+ los parámetros óptimos implementado en el algoritmo de Kittler ¿Que sucede
+ cuando la distancia KL entre el histograma de la imagen y el modelo estimado
+ crece o decrece ?
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La distancia KL se utiliza en el algoritmo de Kittler para evaluar la precisión
+ de las distribuciones gaussianas estimadas.
+\end_layout
+
+\begin_layout Standard
+Cuando la distancia KL entre el histograma de la imagen y el modelo estimado
+ aumenta, este indica que el modelo estimado no se ajusta bien a los datos
+ y indica una estimación del umbral menos precisa.
+ 
+\end_layout
+
+\begin_layout Standard
+Por otro lado, cuando la distancia KL entre el histograma de la imagen y
+ el modelo estimado disminuye, este indica que el modelo estimado se ajusta
+ mejor a los datos y indica una estimación del umbral más precisa.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+c) La función de entropía cruzada compara dos funciones de densidad de probabili
+dad 
+\begin_inset Formula $p\left(x\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+H\left(p,q\right)=-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(q\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+d) Demuestre que 
+\begin_inset Formula $H\left(p,q\right)=H\left(p\right)+D_{\textrm{KL}}\left(p,q\right)$
+\end_inset
+
+, donde 
+\begin_inset Formula $H\left(p\right)=H\left(p,p\right)$
+\end_inset
+
+ corresponde a la entropía.
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left(p,q\right)=H\left(p\right)+D_{\textrm{KL}}\left(p,q\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow H\left(p,q\right)=H\left(p,p\right)+D_{\textrm{KL}}\left(p,q\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(q\left(x\right)\right)=-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(p\left(x\right)\right)+-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Trabajaremos con el lado derecho de la igualdad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(p\left(x\right)\right)+-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-1*\left(\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(p\left(x\right)\right)+\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-1*\left(\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(p\left(x\right)\right)+p\left(x\right)\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)\right)$
+\end_inset
+
+ (propiedad de la sumatoria 
+\begin_inset Formula $\sum x_{i}+y_{i}=\sum x_{i}+\sum y_{i}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-1*\left(\sum_{i=0}^{L}p\left(x\right)*\left(\log_{2}\left(p\left(x\right)\right)+\log_{2}\left(\frac{q\left(x\right)}{p\left(x\right)}\right)\right)\right)$
+\end_inset
+
+ (factor común)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-1*\left(\sum_{i=0}^{L}p\left(x\right)*\left(\log_{2}\left(\frac{q\left(x\right)*p\left(x\right)}{p\left(x\right)}\right)\right)\right)$
+\end_inset
+
+ (propiedad de logaritmos 
+\begin_inset Formula $\log\left(a*b\right)$
+\end_inset
+
+= 
+\begin_inset Formula $\log\left(a\right)$
+\end_inset
+
++
+\begin_inset Formula $\log\left(b\right)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rightarrow-\sum_{i=0}^{L}p\left(x\right)\log_{2}\left(q\left(x\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo tanto queda demostrado la igualdad.
+\end_layout
+
+\begin_layout Section
+Bibliografía
+\end_layout
+
+\begin_layout Standard
+[1]Singaravelan, R., & Natarajan, P.
+ (2012).
+ Modified Kittler–Illingworth algorithm for image thresholding using local
+ variance.
+ International Journal of Computer Science Issues, 9(4)
+\end_layout
+
+\end_body
+\end_document
